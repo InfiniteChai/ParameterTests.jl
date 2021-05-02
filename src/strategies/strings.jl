@@ -17,8 +17,8 @@ end
 
 Base.eltype(::StringStrategy) = string
 
-strings(; minsize=0,maxsize=5000) = strings(:alpha; minsize, maxsize)
-strings(sym::Symbol; minsize=0, maxsize=5000) = strings(Val(sym); minsize, maxsize)
+strings(; minsize=0, maxsize=5000) = strings(:alpha; minsize=minsize, maxsize=maxsize)
+strings(sym::Symbol; minsize=0, maxsize=5000) = strings(Val(sym); minsize=minsize, maxsize=maxsize)
 strings(::Val{:alpha}; minsize=0, maxsize=5000) = StringStrategy(collect(Iterators.flatten(('A':'Z', 'a':'z'))), minsize, maxsize)
 strings(::Val{:alphanum}; minsize=0, maxsize=5000) = StringStrategy(collect(Iterators.flatten(('0':'9', 'A':'Z', 'a':'z'))), minsize, maxsize)
 strings(alphabet; minsize=0, maxsize=5000) = StringStrategy(alphabet, minsize, maxsize)
