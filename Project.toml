@@ -1,0 +1,16 @@
+name = "ParameterTests"
+uuid = "8eb61621-d5fd-4192-a1eb-e9414570b645"
+authors = ["Iain Skett <iain.skett@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+IterTools = "c8e1da08-722c-5040-9ed9-7db0dc04731e"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
