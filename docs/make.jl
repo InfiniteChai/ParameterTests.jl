@@ -14,5 +14,6 @@ makedocs(
 )
 
 deploydocs(
-    repo = "github.com/InfiniteChai/ParameterTests.jl.git"
+    repo = "github.com/InfiniteChai/ParameterTests.jl.git",
+    devbranch = "main"
 )
