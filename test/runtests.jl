@@ -65,11 +65,13 @@ using Dates: Date
             @given b ∈ vectors(dates(;min=Date(2020,1,1)); minsize=5, maxsize=10)
             @given c ∈ vectors(floats(); minsize=10)
             @given d ∈ vectors(floats(Float32;min=0, max=10))
+            @given e ∈ vectors(strings(); maxsize=3)
             @test isa(a, Vector{Int}) && length(a) <= 5
             @test isa(b, Vector{Date}) && 5 <= length(b) <= 10
             @test all(map(x -> x >= Date(2020,1,1), b))
             @test isa(c, Vector{Float64}) && length(c) >= 10
             @test isa(d, Vector{Float32})
+            @test isa(e, Vector{String})
         end
     end
 

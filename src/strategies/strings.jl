@@ -4,9 +4,6 @@ struct StringStrategy <: SearchStrategy
     minsize::UInt32
     maxsize::UInt32
 
-    StringStrategy(alphabet, minsize::Nothing, maxsize::Nothing) = new(alphabet, typemin(UInt32), typemax(UInt32))
-    StringStrategy(alphabet, minsize::Nothing, maxsize) = new(alphabet, typemin(UInt32), maxsize)
-    StringStrategy(alphabet, minsize, maxsize::Nothing) = new(alphabet, minsize, typemax(UInt32))
     StringStrategy(alphabet, minsize, maxsize) = new(alphabet, minsize, maxsize)
 end
 
@@ -15,7 +12,7 @@ function draw(strategy::StringStrategy)
     return string(rand(strategy.alphabet, length)...)
 end
 
-Base.eltype(::StringStrategy) = string
+Base.eltype(::StringStrategy) = String
 
 strings(; minsize=0, maxsize=5000) = strings(:alpha; minsize=minsize, maxsize=maxsize)
 strings(sym::Symbol; minsize=0, maxsize=5000) = strings(Val(sym); minsize=minsize, maxsize=maxsize)
