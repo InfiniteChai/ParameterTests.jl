@@ -1,8 +1,7 @@
 language: julia
 
 julia:
-  - 1.5
-  - 1.6
+  - 1.6 # Currently we have verbose logging, so only support up from 1.6
   - nightly
 
 notifications:
