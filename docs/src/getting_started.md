@@ -116,8 +116,7 @@ As an example, let's test our encode example on a few different explicit cases
 end
 ```
 
-We just use iterators for our test cases, so we can also combine our specific examples with a sampling
-set as well!
+We just use iterators for our test cases, so we can also combine our specific examples with a sampling set as well!
 
 ```julia
 @paramtest "Decode Inverts Encode" begin
