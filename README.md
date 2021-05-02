@@ -10,25 +10,17 @@ This package builds around the standard testing framework in Julia to allow for 
 extension for parameterised and sample testing, while not restricting the free-form
 testing capabilities.
 
-## Installation
+## Example
 
-ParameterTests can be installed via the Julia package manager. From the Julia REPL type `]` to
-enter the Pkg REPL mode and run
+This package provides a simple way to write parameterised tests and to help find
+the edge cases in your code.
 
 ```julia
-pkg> add ParameterTests
-```
-
-Similarly to `Test` you will generally only want to have this as part of the testing packages
-so it's worth editing your `Project.toml` to move the dependency to only be in extras
-
-```toml
-[extras]
-Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
-ParameterTests = "8eb61621-d5fd-4192-a1eb-e9414570b645"
-
-[targets]
-test = ["Test", "ParameterTests"]
+using ParameterTests
+@paramtest "Integers Commute" begin
+  @given a ∈ integers(), b ∈ integers()
+  @test a + b == b + a
+end
 ```
 
 [docs-dev-img]: https://img.shields.io/badge/docs-dev-blue.svg
