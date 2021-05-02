@@ -14,6 +14,7 @@ testing capabilities.
 
 ParameterTests can be installed via the Julia package manager. From the Julia REPL type `]` to
 enter the Pkg REPL mode and run
+
 ```julia
 pkg> add ParameterTests
 ```
