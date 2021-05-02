@@ -11,6 +11,6 @@ include("strategies/arrays.jl")
 include("strategies/strings.jl")
 
 export @paramtest, SingleParameterTestSet, ParameterTestSet
-export integers, dates, vectors, floats, strings
+export integers, dates, vectors, floats, strings, symbols
 
 end # module

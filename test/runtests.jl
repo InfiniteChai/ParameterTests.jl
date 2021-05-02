@@ -45,6 +45,15 @@ using Dates: Date
             @test 3000 <= length(b) <= 5000
             @test length(c) <= 3 && Set(c) ⊆ ('A','B')
         end
+
+        @paramtest "Symbols" begin
+            @given a ∈ symbols(; minsize=0, maxsize=10)
+            @given b ∈ symbols(:alphanum; minsize=3000)
+            @given c ∈ symbols(['A','B']; maxsize=3)
+            @test length(String(a)) <= 10 && isa(a, Symbol)
+            @test 3000 <= length(String(b)) <= 5000
+            @test length(String(c)) <= 3 && Set(String(c)) ⊆ ('A','B')
+        end
     end
 
     @testset "Strategy Parameters" verbose=true begin
@@ -66,12 +75,14 @@ using Dates: Date
             @given c ∈ vectors(floats(); minsize=10)
             @given d ∈ vectors(floats(Float32;min=0, max=10))
             @given e ∈ vectors(strings(); maxsize=3)
+            @given f ∈ vectors(symbols(); maxsize=3)
             @test isa(a, Vector{Int}) && length(a) <= 5
             @test isa(b, Vector{Date}) && 5 <= length(b) <= 10
             @test all(map(x -> x >= Date(2020,1,1), b))
             @test isa(c, Vector{Float64}) && length(c) >= 10
             @test isa(d, Vector{Float32})
             @test isa(e, Vector{String})
+            @test isa(f, Vector{Symbol})
         end
     end
 
