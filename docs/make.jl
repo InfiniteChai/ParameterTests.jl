@@ -2,7 +2,7 @@ push!(LOAD_PATH,"../src/")
 using Documenter, ParameterTests
 
 makedocs(
-    modules = [ParameterTests, IterTools],
+    modules = [ParameterTests],
     clean = false,
     format = Documenter.HTML(),
     sitename = "ParameterTests.jl",
