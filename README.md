@@ -1,6 +1,6 @@
 # ParameterTests.jl
 
-*Provides support parameter and sample tests in Julia*
+*Provides support for parameter and sample tests in Julia*
 
 | **Documentation**                                                         | **Build Status**                                              |
 |:-------------------------------------------------------------------------:|:-------------------------------------------------------------:|
