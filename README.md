@@ -37,10 +37,10 @@ test = ["Test", "ParameterTests"]
 [docs-stable-img]: https://img.shields.io/badge/docs-stable-blue.svg
 [docs-stable-url]: https://infinitechai.github.io/ParameterTests.jl/stable
 
-[travis-img]: https://travis-ci.com/InfiniteChai/ParameterTests.jl.svg?branch=master
+[travis-img]: https://travis-ci.com/InfiniteChai/ParameterTests.jl.svg?branch=main
 [travis-url]: https://travis-ci.com/InfiniteChai/ParameterTests.jl
 
-[codecov-img]: https://codecov.io/gh/InfiniteChai/ParameterTests.jl/branch/master/graph/badge.svg
+[codecov-img]: https://codecov.io/gh/InfiniteChai/ParameterTests.jl/branch/main/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/InfiniteChai/ParameterTests.jl
 
 [issues-url]: https://github.com/JuliaDocs/Documenter.jl/issues
