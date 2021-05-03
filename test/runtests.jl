@@ -94,5 +94,10 @@ using Dates: Date
             @given x ∈ dataset
             @test x <= 5
         end
+
+        @paramtest "Tuple Data" begin
+            @given (x,y) ∈ ((1,2),(3,4))
+            @test x + y == y + x
+        end
     end
 end

@@ -20,6 +20,13 @@ function settingexpr(blocks::Expr...)
     return call
 end
 
+paramkeys(params::Vector) = vcat(map(paramkeys, params)...)
+paramkeys(param::Symbol) = [param]
+function paramkeys(param::Expr)
+    param.head == :tuple || error("param keys must be a tuple")
+    param.args
+end
+
 macro paramtest(name::String, blocks::Expr...)
     block = blocks[end]
     block.head == :block || error("paramtest requires a block expression")
@@ -28,6 +35,7 @@ macro paramtest(name::String, blocks::Expr...)
     # Drop the given lines from our block, we don't need them.
     filter!((!)∘is_given_macro, block.args)
     givenparams = vcat(map(given_parameters, givenlines)...)
+    setparams = paramkeys(map(first, givenparams))
 
     settings = settingexpr(blocks[1:end-1]...)
     testblock = quote
@@ -37,7 +45,7 @@ macro paramtest(name::String, blocks::Expr...)
                     for $(Expr(:tuple, map(first, givenparams)...)) in $(Expr(:call, :zip, map(last, givenparams)...))
                         @testset SingleParameterTestSet begin
                             local ts = Test.get_testset()
-                            $(map(p -> :(ts.parameters[$(QuoteNode(p))] = $p), map(first, givenparams))...)
+                            $(map(p -> :(ts.parameters[$(QuoteNode(p))] = $p), setparams)...)
                             $block
                         end
                     end
