@@ -4,15 +4,28 @@ using Dates: Date
 
 @testset "Parameter Tests" verbose=true begin
     @testset "Strategy Generators" verbose=true begin
+        for type in (Int8, Int16, Int32, Int64, Int128)
+            @paramtest "Integers - $(type)" begin
+                @given a ∈ integers(type)
+                @given b ∈ integers(type; min=0)
+                @given c ∈ integers(type; min=-10, max=10)
+                @given d ∈ integers(type; max=3)
+                @test isa(a, type)
+                @test isa(b, type) && b >= 0
+                @test isa(c, type) && -10 <= c <= 10
+                @test isa(d, type) && d <= 3
+            end
+        end
+
         @paramtest "Integers" begin
-            @given a ∈ integers(Int8)
+            @given a ∈ integers()
             @given b ∈ integers(; min=0)
-            @given c ∈ integers(Int32; min=-10, max=10)
-            @given d ∈ integers(Int64; max=3)
-            @test isa(a, Int8)
+            @given c ∈ integers(; min=-10, max=10)
+            @given d ∈ integers(; max=3)
+            @test isa(a, Int)
             @test isa(b, Int) && b >= 0
-            @test isa(c, Int32) && -10 <= c <= 10
-            @test isa(d, Int64) && d <= 3
+            @test isa(c, Int) && -10 <= c <= 10
+            @test isa(d, Int) && d <= 3
         end
 
         @paramtest "Floats" begin

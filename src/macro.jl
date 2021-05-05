@@ -27,7 +27,7 @@ function paramkeys(param::Expr)
     param.args
 end
 
-macro paramtest(name::String, blocks::Expr...)
+macro paramtest(name, blocks::Expr...)
     block = blocks[end]
     block.head == :block || error("paramtest requires a block expression")
     givenlines = filter(is_given_macro, block.args)
