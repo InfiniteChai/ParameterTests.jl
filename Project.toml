@@ -1,7 +1,7 @@
 name = "ParameterTests"
 uuid = "8eb61621-d5fd-4192-a1eb-e9414570b645"
 authors = ["Iain Skett <iain.skett@gmail.com>"]
-version = "0.1.0"
+version = "0.2.0"
 
 [deps]
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
